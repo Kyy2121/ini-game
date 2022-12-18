@@ -21,16 +21,27 @@ function getWinner(playerChoice, botChoice) {
 
   // Fungsi utama untuk memainkan game Batu Gunting Kertas
 function playGame(choosen) {
-    if (localStorage.getItem('reload') == 1) {
-        localStorage.removeItem('reload')
-        window.location.reload()
-    } else {
         const playerChoice = choosen
         const botChoice = getBotChoice()
-        localStorage.setItem('reload', 1)
+        localStorage.setItem('reload', 0)
         const vs = document.querySelector('.vs')
         vs.style.opacity = 0
+        resetGame()
 
+   // Fungsi untuk reset game
+function resetGame() {
+// ambil semua elemen batu gunting kertas, termasuk bot
+        const bgc = document.querySelectorAll(
+        '.rock, .paper, .scissors, .rockCOM, .paperCOM, .scissorsCOM');
+// ambil parent nya
+        const fix = Array.from(bgc).map(el => el.parentElement);
+
+// hapus class selected
+    bgc.forEach(el => el.classList.remove('selected'));
+
+// hapus class fix
+    fix.forEach(el => el.classList.remove('fix'));
+}
         // Animation card
         const bgc = document.querySelector('.' + choosen)
         bgc.classList.add('selected')
@@ -59,7 +70,7 @@ function playGame(choosen) {
         playerWin.style.opacity = '1'
         }
     }
-}
+
 localStorage.removeItem('reload')
 
 function refreshAnim() {
