@@ -179,6 +179,7 @@ top: 671px;
 .com div {
     margin-bottom: 50%;
     transition: 0.3s;
+    cursor: pointer;
 }
 .selected {
     background: #C4C4C4;
