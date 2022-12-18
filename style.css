@@ -189,6 +189,7 @@ top: 671px;
     border-radius: 10%;
     margin-bottom: 50% !important;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.301);
+    cursor: pointer;
 }
 .fix {
     margin-top: -30% !important;
